@@ -427,7 +427,12 @@ impl Lexer {
     TokenType::StringLiteral(string_val.clone()),
     format!("\"{}\"", string_val),
     line,
+   Token::new(
+    TokenType::StringLiteral(string_val.clone()),
+    format!("'{}'", string_val),
+    line,
     column,
+)
 )
             }
             Some('\'') => {
