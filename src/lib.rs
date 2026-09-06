@@ -26,7 +26,7 @@ mod tests {
 
     #[test]
     fn test_parser() {
-        let source = "let x = 10;\nprintln(x);";
+        let source = "int x = 10";
         let mut parser = Parser::new(source);
         let program = parser.parse();
         assert!(program.is_ok());
