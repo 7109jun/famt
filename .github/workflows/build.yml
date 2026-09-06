@@ -11,8 +11,8 @@ on:
 
 jobs:
   build:
-    name: Build FAMT
-    runs-on: ubuntu-latest
+    name: Build FAMT Windows x64
+    runs-on: windows-latest
 
     steps:
       - name: Checkout
@@ -30,8 +30,8 @@ jobs:
       - name: Build Release
         run: cargo build --release
 
-      - name: Upload binary
+      - name: Upload Windows executable
         uses: actions/upload-artifact@v4
         with:
-          name: famt-linux-x64
-          path: target/release/famt
+          name: famt-windows-x64
+          path: target/release/famt.exe
