@@ -423,7 +423,12 @@ impl Lexer {
             Some(ch) if ch.is_alphabetic() || ch == '_' => self.read_identifier(),
             Some('"') => {
                 let string_val = self.read_string('"');
-                Token::new(TokenType::StringLiteral(string_val), format!("\"{}\"", string_val), line, column)
+                Token::new(
+    TokenType::StringLiteral(string_val.clone()),
+    format!("\"{}\"", string_val),
+    line,
+    column,
+)
             }
             Some('\'') => {
                 let string_val = self.read_string('\'');
